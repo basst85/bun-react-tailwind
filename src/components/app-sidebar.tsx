@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/sidebar"
 import { useMenuItems } from "@/hooks/use-menuitems"
 import LoadingSpinner from "./ui/loading-spinner"
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom"
 
 
 function MenuItems() {

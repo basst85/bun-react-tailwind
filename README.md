@@ -1,6 +1,6 @@
-# Bun + React + Tailwind CSS + Shadcn UI + React Router + SWR
+# Bun + React + Tailwind CSS + Shadcn UI + React Router + TanStack Query (React Query)
 
-A simple test project using Bun, React, Tailwind CSS, Shadcn UI, React Router and SWR.
+A simple test project using Bun, React, Tailwind CSS, Shadcn UI, React Router and TanStack Query (React Query).
 First you need to install [Bun](https://bun.sh/docs/installation) if you haven't already.
 
 To install dependencies:

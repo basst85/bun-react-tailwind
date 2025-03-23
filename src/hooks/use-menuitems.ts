@@ -1,22 +1,23 @@
-import useSWR from 'swr'
-import type { MenuItemGroup } from '@/types/menu'
+import { useQuery } from "@tanstack/react-query"
+import type { MenuItemGroup } from "@/types/menu"
 
-const fetcher = async (url: string) => {
-  const res = await fetch(url)
+
+const fetchMenuItems = async (): Promise<MenuItemGroup[]> => {
+  const res = await fetch("/api/menu")
 
   if (!res.ok) {
-    throw new Error('An error occurred while fetching the data.')
+    throw new Error("An error occurred while fetching the data.")
   }
 
   const data = await res.json()
-  return data.navMain as MenuItemGroup[]
+  return data.navMain
 }
 
 export function useMenuItems() {
-  const { data: menuItems, error, isLoading } = useSWR<MenuItemGroup[], Error>(
-    '/api/menu',
-    fetcher
-  )
+  const { data: menuItems, error, isLoading } = useQuery<MenuItemGroup[]>({
+    queryKey: ["menu-items"],
+    queryFn: fetchMenuItems
+  })
 
   return {
     menuItems: menuItems ?? [],
